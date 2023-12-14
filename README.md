@@ -1,7 +1,11 @@
 # MONTY
+
 0x19. C - Stacks, Queues - LIFO, FIFO
+
 # Learning Objectives
+
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+
 1. What do LIFO and FIFO mean?
 2. What is a stack, and when to use it?
 3. What is a queue, and when to use it?
@@ -10,13 +14,15 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 6. What is the proper way to use global variables?
 
 # Data structures
+
 Please use the following data structures for this project. Don’t forget to include them in your header file.
 
 /**
- * struct stack_s - doubly linked list representation of a stack (or queue)
- * @n: integer
- * @prev: points to the previous element of the stack (or queue)
- * @next: points to the next element of the stack (or queue)
+
+* struct stack_s - doubly linked list representation of a stack (or queue)
+* @n: integer
+* @prev: points to the previous element of the stack (or queue)
+* @next: points to the next element of the stack (or queue)
  *
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
@@ -37,11 +43,12 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
+        char*opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 # Compilation & Output
+
 Your code will be compiled this way:
 $ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
 Any output must be printed on stdout
@@ -49,9 +56,11 @@ Any error message must be printed on stderr
 Here is a link to a GitHub repository that could help you making sure your errors are printed on stderr
 
 # Tests
+
 We strongly encourage you to work all together on a set of tests
 
 # The Monty language
+
 Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.
 
 # Monty byte code files
