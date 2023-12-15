@@ -1,12 +1,12 @@
 #include "monty.h"
 
-void push_instruction(stack_t **stack, unsigned int line_number)
+void push_instruction(stack_t **stack, unsigned int lineNum)
 {
 	char argument[100];
 
 	if (!fgets(argument, sizeof(argument), NULL))
 	{
-		fprintf(stderr, "Error: L%u: Missing argument for 'push'\n", line_number);
+		fprintf(stderr, "Error: L%u: Missing argument for 'push'\n", lineNum);
 		exit(1);
 	}
 
@@ -15,7 +15,7 @@ void push_instruction(stack_t **stack, unsigned int line_number)
 	if (sscanf(argument, "%d", &value) != 1)
 	{
 		fprintf(stderr, "Error: L%u: Invalid argument '%s' for 'push'\n",
-		line_number, argument);
+		lineNum, argument);
 		exit(1);
 	}
 
@@ -26,7 +26,7 @@ void push_instruction(stack_t **stack, unsigned int line_number)
 	*stack = newNode;
 }
 
-void pall_instruction(stack_t **stack, unsigned int line_number)
+void pall_instruction(stack_t **stack, unsigned int lineNum)
 {
 	if (*stack == NULL)
 		return;
