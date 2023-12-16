@@ -8,8 +8,8 @@
 void push_instruction(stack_t **stack, unsigned int lineNum)
 {
 	char argument[100], *endptr;
-	int value;
-	
+	int value, errno;
+
 	if (!fgets(argument, sizeof(argument), NULL))
 	{
 		fprintf(stderr, "Error: L%u: Missing argument for 'push'\n", lineNum);
@@ -80,6 +80,23 @@ void process_line(char *line, stack_t **stack, unsigned int *lineNum, instructio
 		exit(EXIT_FAILURE);
 	}
 	(*lineNum)++;
+}
+/**
+ * free_stack - Function frees the stack after completion.
+ * @stack:  Pointer to pointer for the stack
+*/
+void free_stack(stack_t *stack)
+{
+	stack_t *current = stack;
+	stack_t *next;
+	
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	free(stack);
 }
 
 /**
