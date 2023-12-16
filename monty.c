@@ -7,22 +7,24 @@
  */
 void push_instruction(stack_t **stack, unsigned int lineNum)
 {
-	char argument[100];
-
+	char argument[100], *endptr;
+	int value;
+	
 	if (!fgets(argument, sizeof(argument), NULL))
 	{
 		fprintf(stderr, "Error: L%u: Missing argument for 'push'\n", lineNum);
 		exit(1);
 	}
 
-	int value;
-
-	if (kstrtol(argument, 0, 10, &value) != 0)
+	errno = 0;
+	value = strtol(argument, &endptr, 10);
+	
+	if (errno != 0 || *endptr != '\0')
 	{
-		fprintf(stderr, "Error: L%u: Invalid argument '%s' for 'push'\n",
-			lineNum, argument);
-		exit(1);
+		fprintf(stderr, "Error: L%u: Invalid argument '%s' for 'push'\n", lineNum, argument);
+		exit(EXIT_FAILURE);
 	}
+
 
 	stack_t *newNode = malloc(sizeof(stack_t));
 
