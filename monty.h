@@ -40,17 +40,17 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int lineNum);
 } instruction_t;
 
-void function_push(stack_t **head, unsigned int number);
-void function_pall(stack_t **head, unsigned int number);
+void function_push(stack_t **head, unsigned int num);
+void function_pall(stack_t **head, unsigned int num);
 void free_stack(stack_t *head);
 void function_swp(stack_t **head, unsigned int counter);
-void function_addQ(stack_t **head, int n);
+void function_addQ(stack_t **head, int num);
 void function_stack(stack_t **head, unsigned int counter);
 void function_div(stack_t **head, unsigned int counter);
 void function_mul(stack_t **head, unsigned int counter);
 void function_pchar(stack_t **head, unsigned int counter);
 void function_rotl(stack_t **head, unsigned int counter);
-void function_pint(stack_t **head, unsigned int number);
+void function_pint(stack_t **head, unsigned int num);
 void function_pop(stack_t **head, unsigned int counter);
 void function_add(stack_t **head, unsigned int counter);
 void function_nop(stack_t **head, unsigned int counter);
@@ -60,8 +60,8 @@ void function_pstr(stack_t **head, unsigned int counter);
 void function_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
 void function_addnode(stack_t **head, int n);
 void function_Q(stack_t **head, unsigned int counter);
-char *clean_line(char *content);
-char *realloc(char *ptr, unsigned int old_size, unsigned int new_size);
+char *clear_line(char *content);
+char *realloc(char *ptr, unsigned int oldSize, unsigned int newSize);
 ssize_t getstdin(char **lineptr, int file);
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
 
