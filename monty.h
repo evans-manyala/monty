@@ -60,7 +60,7 @@ void function_pstr(stack_t **head, unsigned int counter);
 void function_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
 void function_addnode(stack_t **head, int n);
 void function_Q(stack_t **head, unsigned int counter);
-char *clear_line(char *content);
+char *clean_line(char *content);
 char *realloc(char *ptr, unsigned int oldSize, unsigned int newSize);
 ssize_t getstdin(char **lineptr, int file);
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
