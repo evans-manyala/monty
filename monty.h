@@ -4,6 +4,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -35,8 +40,29 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int lineNum);
 } instruction_t;
 
-void push(stack_t **stack, int value, unsigned int lineNum);
-void pall(stack_t **stack, unsigned int lineNum);
-void free_stack(stack_t *stack);
+void function_push(stack_t **head, unsigned int number);
+void function_pall(stack_t **head, unsigned int number);
+void free_stack(stack_t *head);
+void function_swp(stack_t **head, unsigned int counter);
+void function_addQ(stack_t **head, int n);
+void function_stack(stack_t **head, unsigned int counter);
+void function_div(stack_t **head, unsigned int counter);
+void function_mul(stack_t **head, unsigned int counter);
+void function_pchar(stack_t **head, unsigned int counter);
+void function_rotl(stack_t **head, unsigned int counter);
+void function_pint(stack_t **head, unsigned int number);
+void function_pop(stack_t **head, unsigned int counter);
+void function_add(stack_t **head, unsigned int counter);
+void function_nop(stack_t **head, unsigned int counter);
+void function_sub(stack_t **head, unsigned int counter);
+void function_mod(stack_t **head, unsigned int counter);
+void function_pstr(stack_t **head, unsigned int counter);
+void function_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
+void function_addnode(stack_t **head, int n);
+void function_Q(stack_t **head, unsigned int counter);
+char *clean_line(char *content);
+char *realloc(char *ptr, unsigned int old_size, unsigned int new_size);
+ssize_t getstdin(char **lineptr, int file);
+int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
 
 #endif
